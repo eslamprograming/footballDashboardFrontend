@@ -1,0 +1,31 @@
+<br><br>
+<a href="/CreateMatch" type="button" class="btn btn-info">Add New Match</a>
+<br><br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Away Team</th>
+      <th scope="col">Home Team</th>
+      <th scope="col">Date Time</th>
+      <th scope="col">Referee Name</th>
+      <th scope="col">Details</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of response.values">
+      <th scope="row">1</th>
+      <td>{{item.homeTeam.teamName}}</td>
+      <td>{{item.awayTeam.teamName}}</td>
+      <td>{{item.matchDate}}</td>
+      <td>{{item.refereeName}}</td>
+      <td><button type="button" class="btn btn-success"(click)="Details(item)">Details</button></td>
+      <td><button type="button" class="btn btn-primary"(click)="Edit(item)">Edit</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="Delete(item.matchID)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

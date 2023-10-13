@@ -1,0 +1,43 @@
+<!-- MainTeam.component.html -->
+
+<br /><br />
+<a href="/CreateTeam" type="button" class="btn btn-info">Add New Team</a>
+
+  <!-- <label style="margin-left: 30%;">League : </label> -->
+  <select style="width: 30%;margin-left: 40%;position: fixed;" name="league" (change)="leagueTeam()" [(ngModel)]="selectedLeague" required>
+    <option  selected value="">--Select League--</option>
+    <option *ngFor="let league of responseobj.values" [value]="league.leagueID">{{ league.leagueName }}</option>
+  </select>
+  
+  
+
+<br /><br />
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Team Name</th>
+      <th scope="col">Founded Year</th>
+      <th scope="col">Home City</th>
+      <th scope="col">Home Stadium</th>
+      <th scope="col">Coach Name</th>
+      <th>Details</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teams" >
+      <th  scope="row"><img width="70px" height="45px" src="{{team.teamLogo}}" alt="Image from Google Drive"></th>
+      <td>{{ team.teamName }}</td>
+      <td>{{ team.foundedYear }}</td>
+      <td>{{ team.homeCity }}</td>
+      <td>{{ team.homeStadium }}</td>
+      <td>{{ team.coachName }}</td>
+      <td><button type="button" class="btn btn-success" (click)="Details(team.teamID,'api/Team/GetTeam?TeamId=')">Details</button></td>
+      <td><button type="button" class="btn btn-primary" (click)="Edit(team)">Edit</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="Delete(team.teamID,'api/Team/DeleteTeam?TeamId=')">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

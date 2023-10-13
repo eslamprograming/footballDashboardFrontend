@@ -1,0 +1,58 @@
+
+<div style="background-color: rgb(174, 217, 224);position:absolute;width: 80%;padding: 10px;">
+
+
+<a href="/CreatePlayer" type="button" class="btn btn-info">Add New Player</a>
+
+<div style="margin-left: 155px; display: inline;" >
+
+  <div  style="display:inline;">
+    <label for="LeagueId" style="width: 1%;">League</label>
+    <select style="width: 20%;margin-left: 5%;" name="LeagueId" [(ngModel)]="selectedLeague" (change)="Team()" required>
+      <option selected="--Select League--" value="">--Select League--</option>
+      <option *ngFor="let league of responseobj.values" [value]="league.leagueID">{{ league.leagueName }}</option>
+    </select>
+  </div>
+  
+  <div  style="display: inline;">
+    <label for="CurrentTeamID" style="width: 1%;margin-left: 10%;"> Team</label>
+    <select style="width: 20%;margin-left: 5%;" name="CurrentTeamID" (change)="AllPlayer()"
+     [(ngModel)]="selectedTeam" required>
+      <option value="">--Select Team--</option>
+      <option *ngFor="let team of teams" [value]="team.teamID">{{ team.teamName }}</option>
+    </select>
+  </div>
+</div>
+</div>
+<div style="margin-top: 5%;position:absolute;width: 80%;">
+<table class="table table-hover" >
+  <thead>
+    <tr >
+      <th scope="col">#</th>
+      <th scope="col">FirstName </th>
+      <th scope="col">LastName</th>
+      <th scope="col">DateOfBirth</th>
+      <th scope="col">Nationality</th>
+      <th scope="col">Position</th>
+      <th scope="col">Details</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let item of response2.values">
+      <th ><img width="70px" height="45px" src="{{item.playerPhoto}}" alt="Image from Google Drive"></th>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.dateOfBirth}}</td>
+      <td>{{item.nationality}}</td>
+      <td>{{item.position}}</td>
+      <td><a type="button" class="btn btn-success"(click)="Details(item.playerID,'api/Player/GetPlayeInfo?PlayerId=')">Details</a></td>
+      <td><a type="button" class="btn btn-primary"(click)="Edit(item)">Edit</a></td>
+      <td><button type="button" class="btn btn-danger"(click)="Delete(item.playerID,'api/Player/DeletePlayer?PlayerId=')">Delete</button></td>
+    </tr>
+   
+  </tbody>
+</table>
+</div>

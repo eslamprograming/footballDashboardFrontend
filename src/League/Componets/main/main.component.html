@@ -1,0 +1,30 @@
+<br><br>
+<a href="/CreateLeague" type="button" class="btn btn-info">Add New League</a>
+<br><br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">League Name</th>
+      <th scope="col">Session</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Details</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of responseobj.values">
+      <th scope="row"><img width="70px" height="45px" src="{{item.leagueLogo}}" alt="Image from Google Drive"></th>
+      <td>{{item.leagueName}}</td>
+      <td>{{item.season}}</td>
+      <td>{{item.startDate}}</td>
+      <td>{{item.endDate}}</td>
+      <td><a type="button" class="btn btn-success" disabled (click)="Details(item.leagueID,'api/League/GetLeague?LeagueId=')">Details</a></td>
+      <td><a type="button" class="btn btn-primary" (click)="Edit(item)">Edit</a></td>
+      <td><button type="button" class="btn btn-danger" (click)="Delete(item.leagueID,'api/League/DeleteLeague?LeagueId=')">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

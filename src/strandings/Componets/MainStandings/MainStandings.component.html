@@ -1,0 +1,39 @@
+<br><br>
+<div class="input-data">
+  <label for="LeagueId">League</label>
+  <select style="width: 43%; margin-left: 4%;" name="LeagueId" [(ngModel)]="league2" (change)="Stranding()" required>
+    <option value="">--Select League--</option>
+    <option *ngFor="let league of responseobj.values" [value]="league.leagueID">{{ league.leagueName }}</option>
+  </select>
+  <div class="underline"></div>
+<br><br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">TeamName</th>
+      <th scope="col">Win</th>
+      <th scope="col">Draw</th>
+      <th scope="col">Loss</th>
+      <th>Points</th>
+      <th>Goal For</th>
+      <th>Goal Against</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of responseStranding.values">
+      <th scope="row"><img width="50px" height="50px" src={{item.team.teamLogo}}></th>
+      <td>{{item.team.teamName}}</td>
+      <td>{{item.wins}}</td>
+      <td>{{item.draws}}</td>
+      <td>{{item.losses}}</td>
+      <td>{{item.points}}</td>
+      <td>{{item.goalsFor}}</td>
+      <td>{{item.goalsAgainst}}</td>
+    </tr>
+   
+  </tbody>
+</table>

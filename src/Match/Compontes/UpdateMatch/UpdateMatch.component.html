@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="text">
+    UpdateMatch
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="input-data">
+        <label for="LeagueId">League</label>
+        <select style="width: 73%; margin-left: 27%;" name="LeagueId" [(ngModel)]="model.LeagueID" (change)="Team()" required>
+          <option value="">--Select League--</option>
+          <option *ngFor="let league of responseobj.values" [value]="league.leagueID">{{ league.leagueName }}</option>
+        </select>
+        <div class="underline"></div>
+      </div>
+      <div class="input-data">
+        <label for="VenueId">Venue</label>
+        <select style="width: 73%; margin-left: 27%;" name="VenueId" [(ngModel)]="model.VenueId" required>
+          <option value="">--Select Venue--</option>
+          <option *ngFor="let Venue of responseobj2.values" [value]="Venue.venueID">{{ Venue.venueName }}</option>
+        </select>
+        <div class="underline"></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-data">
+        <label for="HomeTeam">Home Team</label>
+        <select style="width: 73%; margin-left: 27%;" name="HomeTeam" [(ngModel)]="model.HomeTeamID" required>
+          <option value="">--Select Team--</option>
+          <option *ngFor="let team of teams" [value]="model.HomeTeamID">{{ team.teamName }}</option>
+        </select>
+      </div>
+      <div class="input-data">
+        <label for="AwayTeam">Away Team</label>
+        <select style="width: 73%; margin-left: 27%;" name="AwayTeam" [(ngModel)]="model.AwayTeamID" required>
+          <option value="">--Select Team--</option>
+          <option *ngFor="let team of teams" [value]="model.AwayTeamID">{{ team.teamName }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-data">
+        <label for="MatchDate">HomeTeamScore</label>
+        <input type="number" name="HomeTeamScore" [(ngModel)]="model.HomeTeamScore" required>
+        <div class="underline"></div>
+      </div>
+      <div class="input-data">
+        <label for="Location">AwayTeamScore</label>
+        <input type="number" name="AwayTeamScore" [(ngModel)]="model.AwayTeamScore" required>
+        <div class="underline"></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-data">
+        <label for="MatchDate">Match Date</label>
+        <input type="datetime-local" name="MatchDate" [(ngModel)]="model.MatchDate" required>
+        <div class="underline"></div>
+      </div>
+      <div class="input-data">
+        <label for="Location">Location</label>
+        <input type="text" name="Location" [(ngModel)]="model.Location" required>
+        <div class="underline"></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-data">
+        <label for="RefereeName">Referee Name</label>
+        <input type="text" name="RefereeName" [(ngModel)]="model.RefereeName" required>
+        <div class="underline"></div>
+      </div>
+    </div>
+    <br />
+    <div class="form-row submit-btn">
+      <div class="input-data">
+        <div class="inner"></div>
+        <input type="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>

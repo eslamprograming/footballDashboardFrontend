@@ -1,0 +1,39 @@
+<!-- Update.component.html -->
+<div class="container">
+  <div class="text">
+    Update Venue
+  </div>
+  <form (ngSubmit)="ngSubmit()">
+    <div class="form-row">
+      <div class="input-data">
+        <input type="text" name="venueName" [(ngModel)]="model.venueName" required>
+        <div class="underline"></div>
+        <label for="venueName">Venue Name</label>
+      </div>
+      <div class="input-data">
+        <input type="number" min="1" name="capacity" [(ngModel)]="model.capacity" required>
+        <div class="underline"></div>
+        <label for="capacity">Capacity</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-data">
+        <input type="text" name="location" [(ngModel)]="model.location" required>
+        <div class="underline"></div>
+        <label for="location">Location</label>
+      </div>
+      <div class="input-data">
+        <input type="text" name="contactInfo" [(ngModel)]="model.contactInfo" required>
+        <div class="underline"></div>
+        <label for="contactInfo">Contact Info</label>
+      </div>
+    </div>
+    <br />
+    <div class="form-row submit-btn">
+      <div class="input-data">
+        <div class="inner"></div>
+        <input type="submit" value="Update">
+      </div>
+    </div>
+  </form>
+</div>
